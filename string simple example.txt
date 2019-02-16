@@ -1,0 +1,35 @@
+#include <iostream>
+#include<string>
+using namespace std;
+
+int main()
+{
+	setlocale(LC_ALL, "Rus");
+	string name;
+
+	getline(cin, name);
+
+
+	char c;
+	cin >> c;
+	int count = 0;
+	for (int i = 0; i < name.length(); i++)
+	{
+		if (name[i] == c)
+		{
+			count++;
+		}
+	}
+	cout << "В строке " << name << " " << count << "букв "<< c << endl;
+	cout << endl;
+
+	
+
+
+	
+	system("pause");
+
+	return 0;
+
+
+}
