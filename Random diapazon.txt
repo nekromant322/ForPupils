@@ -1,0 +1,28 @@
+#include<iostream>
+#include<ctime>
+using namespace std;
+
+int main()
+{
+	setlocale(LC_ALL, "Rus");
+	srand(time(NULL));
+	
+	int b ;
+	int c;
+	for(int i = 0 ; i < 10 ; i++)
+	{
+		c = rand()%2;
+		if(c == 0)
+		{
+			b =rand() %20 + 40 ;   //(40; 60)
+		}
+		if( c == 1)
+		{
+			b =-1*(rand() %20 + 40 ); 
+		}
+		cout<<b<<endl;
+
+	}
+
+	system("pause");
+}
