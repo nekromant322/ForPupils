@@ -1,0 +1,80 @@
+#include <iostream> 
+#include <string>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+
+	
+	
+
+
+	
+
+	int answer = -1;
+	while (answer != 0)
+	{
+		cout << "1.Reg" << endl << "2.Log" << endl << "0.Exit" << endl;
+		cin >> answer;
+		switch (answer)
+		{
+		case 1:
+		{
+			string login;
+			cout << "¬ведите логин" << endl;
+			cin >> login;
+			string pass;
+			cout << "¬ведите пароль" << endl;
+			cin >> pass;
+			ofstream fout;
+			fout.open("D:\\Users\\admin\\Desktop\\test\\logpass.txt");
+			fout << login << endl;
+			fout << pass << endl;
+			fout.close();
+			break;
+		}
+		case 2:
+		{
+			string login;
+			cout << "¬ведите логин" << endl;
+			cin >> login;
+			string pass;
+			cout << "¬ведите пароль" << endl;
+			cin >> pass;
+			string log_from_file;
+			string pass_from_file;
+			ifstream fin;
+			fin.open("D:\\Users\\admin\\Desktop\\test\\logpass.txt");
+			fin >> log_from_file;
+			fin >> pass_from_file;
+			if ()
+			{
+
+
+
+			}
+			fin.close();
+			break;
+		}
+		case 0:
+		{
+
+		}
+		default:
+		{
+			cout << "Error, try again" << endl;
+			break;
+		}
+
+		}
+	}
+
+
+
+
+
+		setlocale(LC_ALL, "Rus");//подключаем русский €зык
+
+	
+}
