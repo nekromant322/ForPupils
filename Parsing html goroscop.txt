@@ -1,0 +1,46 @@
+#include <iostream>
+#include <ctime>
+#include <string>
+#include <fstream>
+#include <vector>
+#include <Windows.h> 
+using namespace std;
+void main()
+{
+	SetConsoleOutputCP(1251);
+	SetConsoleCP(1251);
+	setlocale(LC_ALL, "Rus");
+	srand(time(NULL));
+	ofstream fout;
+	fout.open("example.txt");
+	fout << "primer" << endl;
+	ifstream fin;
+	fin.open("goroskop.html");
+	string text = "";
+	while (!fin.eof() ) //пока не конец файла
+	{
+		char c;
+		fin >> c;
+		text.push_back(c);
+
+
+	}
+	int index = text.find("class=\"textContainer\"");
+	cout << "index = "<<index << endl;
+	index = index + 78;
+	string result = "";
+	for (int i = index; text[i] != '<'; i++)
+	{
+		result.push_back(text[i]);
+	}
+	cout << result<<endl;
+	
+
+
+
+
+	fout.close();
+	fin.close();
+	
+	system("pause");
+}
