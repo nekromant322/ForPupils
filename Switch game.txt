@@ -1,0 +1,43 @@
+#include <iostream>
+using namespace std;
+
+int main(int argc, char* argv[])
+{
+	int  answer1, answer2, answer3, answer_case = 0;  // вспомогательные переменные
+	cout << "1)How many cat lives? \nanswers: \n-> 5 lives \n-> 7 lives \n-> 9 lives\nyour answer: "; // Сколько жизней у кошки?
+	cin >> answer1;
+	cout << "\n2)How many centimeters in a meter? \nanswers: \n-> 10 centimeters \n-> 100 centimeters \n-> 1000 centimeters\nyour answer: "; // Сколько сантиметров в одном метре?
+	cin >> answer2;
+	cout << "\n2)The speed of sound? \nanswers: \n-> 340 m/s \n-> 320 m/s \n-> 240 m/s \nyour answer: "; //Скорость звука?
+	cin >> answer3;
+	if (answer1 == 9) answer_case++; // проверяем ответ на первый вопрос
+	if (answer2 == 100) answer_case++; // проверяем ответ на второй вопрос
+	if (answer3 == 340) answer_case++; // проверяем ответ на третий вопрос
+	
+	switch (answer_case) // определяем количество баллов, по пятибальной системе
+	{
+	case 0:
+	{
+		cout << "Your score is 0 :( oops\n"; 
+		break;
+	}
+	case 1:
+	{
+		cout << "Your score is 1 :|\n";
+		break;
+	}
+	case 2:
+	{
+		cout << "Your score is 2 -_- \n";
+		break;
+	}
+	case 3:
+	{
+		cout << "Your score is 3 :) \n";
+		break;
+	}
+	default: cout << "Error\n";
+	}
+	system("pause");
+	return 0;
+}
