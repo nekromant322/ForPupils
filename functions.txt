@@ -1,0 +1,68 @@
+#include <iostream>
+#include<ctime>
+#include<math.h>
+
+using namespace std;
+float trap_area(float a, float b, float height)
+{
+	return (a + b) / 2 * height;
+}
+float sphere_volume(float radius)
+{
+	float V =   4.0 / 3 * 3.14* radius*radius*radius;
+	return V;
+}
+void print_menu()
+{
+	cout << "1.Play the game" << endl;
+	cout << "2.Settings" << endl;
+	cout << "3.Exit" << endl;
+}
+float absolute(float number)
+{
+	if (number < 0)
+	{
+		return -1 * number;
+	}
+	else
+	{
+		return number;
+	}
+}
+float y(float x)
+{
+	return -x * x * x  + x*x + 8*x;
+}
+void print_table(float left, float right, float step)
+{
+	cout << "x  y" << endl;
+	for (float i = left; i < right; i=i+step)
+	{
+		cout << i << "  " << y(i) << endl;
+	}
+}
+float my_pow(float x, float y)
+{
+
+
+	return 
+}
+
+int main()
+{
+	srand(time(NULL));
+	setlocale(LC_ALL, "Russian");
+	
+	cout << my_pow(2.0, 10) << endl;;
+
+
+	
+
+
+
+	
+	system("pause");
+	
+	return 0;
+
+}
