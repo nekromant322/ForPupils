@@ -1,0 +1,36 @@
+#include <iostream>
+#include<string>
+#include <vector>
+using namespace std;
+
+int main()
+{
+	setlocale(LC_ALL, "Rus");
+	
+	vector<string> names;
+	string name;
+	for (int i = 0; i < 5; i++)
+	{
+		getline(cin, name);
+		names.push_back(name);
+	}
+
+
+	for (int i = 0; i < names.size(); i++)
+	{
+		cout << "Здравствуй, " + names[i] << endl;
+	}
+
+
+	
+
+
+
+
+	
+	system("pause");
+
+	return 0;
+
+
+}
