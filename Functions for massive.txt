@@ -1,0 +1,99 @@
+#include <iostream>
+#include<ctime>
+using namespace std;
+float Perimetr(float a, float b, float c)
+{
+	
+	return a + b + c;
+}
+void print(float* m, int size)
+{
+	for (int i = 0; i < size; i++)
+	{
+		cout << m[i] << " ";
+	}
+	cout << endl;
+}
+void fill(float* m, int size)
+{
+	for (int i = 0; i < size; i++)
+	{
+		m[i] = (rand() % 100 - 50) / 10.0;
+	}
+
+}
+float max_mas(float* m, int size)
+{
+	float max = m[0];
+	for (int i = 0; i < size; i++)
+	{
+		if (m[i] > max)
+		{
+			max = m[i];
+		}
+	}
+	return max;
+}
+void menu()
+{
+	cout << "1.Заполнить массив" << endl;
+	cout << "2.Вывести на экран" << endl;
+	cout << "3.Найти максимум" << endl;
+	cout << "4.Найти минимум" << endl;
+	cout << "5.Отсортировать" << endl;
+	cout << "0.Выход" << endl;
+}
+void main()
+{
+	
+	
+	
+	setlocale(LC_ALL, "Rus");
+	srand(time(NULL));
+	int n = 0;
+	cout << "Какого размера массив вы хотите создать?" << endl;
+	cin >> n;
+	cout << endl;
+	float* Mas= new float[n];
+	fill(Mas, n);
+	
+
+	int answer = -1;
+	while (answer!=0)
+	{
+		menu();
+		cin >> answer;
+		switch (answer)
+		{
+			case 1:
+			{
+				fill(Mas, n);
+				break;
+			}
+			case 2:
+			{
+				print(Mas, n);
+				break;
+			}
+			case 3:
+			{
+				cout << "Maximum :" << max_mas(Mas, n) << endl;
+				break;
+			}
+			case 0:
+			{
+				
+			}
+			default:
+			{
+				cout << "Error" << endl;
+			}
+		}
+
+	}
+
+	system("pause");
+	delete[] Mas;
+	return;
+	
+}
