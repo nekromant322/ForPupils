@@ -1,0 +1,132 @@
+#include <iostream>
+using namespace std;
+void fill(double* m, int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		m[i] = rand() % 100 / 3.14;
+	}
+}
+double* add(double* mas, int n)
+{
+
+	double* buf = new double[n + 1];
+	for (int i = 0; i < n; i++)
+	{
+		buf[i] = mas[i];
+	}
+	cout << "Enter new element" << endl;
+	cin >> buf[n];
+	delete[] mas;
+	mas = buf;
+	
+
+	return buf;
+}
+int main()
+{
+	//1.добавить элемент
+	//2.вывести весь массив на экран
+	//3.заполнить случайными
+	//0.Выйти
+	setlocale(LC_ALL, "Russian");
+	int n;
+	cout << "Enter length:" << endl;
+	cin >> n;
+	double* mas;
+	mas = new double[n];
+	fill(mas, n);//заполнение 
+
+	int answer = -1;
+
+	while (answer != 0)
+	{
+		cout << "1.добавить элемент" << endl;
+		cout << "2.вывести весь массив на экран" << endl;
+		cout << "3.заполнить случайными" << endl;
+		cout << "4.удаление из конца" << endl;
+		cout << "0.Выйти" << endl;
+		cin >> answer;
+		switch (answer)
+		{
+			case 1:
+			{
+				mas = add(mas, n);
+				n++;
+				break;
+			}
+			case 2:
+			{
+				for (int i = 0; i < n; i++)
+				{
+					cout << mas[i] << " ";
+				}
+				break;
+			}
+			case 3:
+			{
+				for (int i = 0; i < n; i++)
+				{
+					mas[i] = rand() % 100 / 3.14;
+				}
+				
+				break;
+			}
+			case 4:
+			{
+				double* buf = new double[n - 1];
+				for (int i = 0; i < n - 1; i++)
+				{
+					buf[i] = mas[i];
+				}
+				delete[] mas;
+				mas = buf;
+				n--;
+				break;
+			}
+			case 0:
+			{
+				break;
+			}
+			default:
+			{
+				cout << "Error,try again" << endl;
+			}
+
+		}
+	}
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	delete[] mas;
+	//delete[] buf;// ERRRROR 
+	system("pause");
+	return 0;
+}
+
+    //1.добавить элемент
+	//2.вывести весь массив на экран
+	//3.заполнить случайными
+	//0.Выйти
+
+
