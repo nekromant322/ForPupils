@@ -1,0 +1,53 @@
+
+#include "ctime"
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	srand(time(NULL));
+	const int n = 20;
+	float mas[n];
+	for (int i = 0; i < n; i++)
+	{
+		mas[i] = (rand() % 101 - 50) / 10.0;
+		cout << mas[i] << " ";
+	}
+	cout << endl;
+
+	float max = mas[0];
+	int pos_max = 0;
+	float min = mas[0];
+	int pos_min = 0;
+	for (int i = 0; i < n; i++)
+	{
+		if (mas[i] > max)
+		{
+			max = mas[i];
+			pos_max = i;
+		}
+		if (mas[i] < min)
+		{
+			min = mas[i];
+			pos_min = i;
+		}
+	}
+	cout << "Max : " << max << endl;
+	cout << "Pos max : " << pos_max << endl;
+	cout << "Min : " << min << endl;
+	cout << "Pos min : " << pos_min << endl;
+	float p = 1;
+	if (pos_max > pos_min)
+	{
+		swap(pos_max, pos_min);
+	}
+	for(int i = pos_max + 1; i < pos_min; i++)
+	{
+		p = p * mas[i];
+	}
+	cout << "P = " << p << endl;
+	system("pause");
+}
