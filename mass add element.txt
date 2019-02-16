@@ -1,0 +1,73 @@
+#include <iostream>
+#include <ctime>
+using namespace std;
+float sqr(float number)
+{
+	return number * number;
+}
+void print(float* m, int size)
+{
+	for (int i = 0; i < size; i++)
+	{
+		cout << m[i] << " ";
+	}
+}
+void randmas(float* m, int size)
+{
+	for (int i = 0; i < size; i++)
+	{
+		m[i] = (rand() % 100 - 50) / 10.0;
+	}
+}
+void sort(float* m, int size)
+{
+	for (int j = 0; j < size; j++)
+	{
+		for (int i = 0; i < size - 1; i++)
+		{
+			if (m[i] > m[i + 1])
+			{
+				swap(m[i], m[i + 1]);
+			}
+		}
+	}
+}
+float max(float* m, int size)
+{
+	float max = m[0];
+	for (int i = 0; i < size; i++)
+	{
+		if (m[i] > max)
+		{
+			max = m[i];
+		}
+	}
+	return max;
+}
+int main()
+{
+	setlocale(LC_ALL, "Rus");
+	srand(time(NULL));
+	int n;
+	cout << "¬ведите длину массива: " << endl;
+	cin >> n;
+	float* mas = new float[n];
+	randmas(mas, n);
+
+
+	float* p = new float[n + 1];
+	for (int i = 0; i < n; i++)
+	{
+		p[i] = mas[i];
+	}
+	p[n] = rand()% 50;
+	delete[] mas;
+	mas = p;
+
+	
+
+
+	delete[] mas;
+	
+	system("pause");
+}
