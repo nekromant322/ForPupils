@@ -1,0 +1,58 @@
+1. Установить DevC++ из exe в архиве
+2. Открыть папку на диске, куда установил аля C:\Dev-Cpp
+3. graphics.h поместить внутрь папки include
+4. libbgi.a поместить внутрь папки lib
+5. Создать пустой проект С++ в DevC++ (аналогично с VS)
+6. Нажать Alt+P
+7. В появившемся окне выбрать Parameters (4 слева колонка)
+8. Там будут три пустых поля, в самое правое скопировать текст:
+
+-lbgi
+-lgdi32
+-lcomdlg32
+-luuid
+-loleaut32
+-lole32
+
+9. В проект добавить cpp файл(если не добавился)
+10. Скопировать туда простейшую программу:
+
+#include <graphics.h>
+
+int main( )
+{
+    initwindow(400, 300, "First Sample");
+    circle(100, 50, 40);
+    while (!kbhit( ))
+    {
+        delay(200);
+    }
+    return 0;
+}
+
+10. Нажать f9 (запустить)
+11. Радоваться
+
+Эта же инструкция на английском языке:
+http://www.cs.colorado.edu/~main/bgi/dev-c++/
+Полезная документация:
+http://www.stefansundin.se/programmering/proga/WINBGIM-%20MANUAL.pdf
+http://www.codenet.ru/progr/cpp/spr/
+
+Пример программы с простой анимацией:
+#include <graphics.h>
+
+int main( )
+{
+    initwindow(800, 600, "First animation");
+    int x = 0;
+   
+    while (!kbhit( ))
+    {
+ 	circle(x, 50, 40);
+	x++;
+        delay(200); //задержка, чтобы успеть увидеть отрисованное перед тем как экран очистится
+	clearviewport()//очистка экрана, попробуйте посмотреть что будет если убрать
+    }
+    return 0;
+}
