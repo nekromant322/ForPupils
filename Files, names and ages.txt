@@ -1,0 +1,70 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <fstream>
+#include <Windows.h>
+#include <sstream>
+#include <iomanip>
+using namespace std;
+
+
+int main()
+{
+
+	SetConsoleOutputCP(1251);
+	SetConsoleCP(1251);
+	
+	ifstream fin;
+	fin.open("D:\\Users\\admin\\Desktop\\test\\input.txt");
+	vector<string> name;
+	vector<string> surname;
+	vector<int> age;
+
+	while (!fin.eof())
+	{
+		
+		string a;
+		fin >> a;
+		name.push_back(a);
+		fin >> a;
+		surname.push_back(a);
+		int ch;
+		fin >> ch;
+		age.push_back(ch);
+
+	}
+	
+
+	for (int i = 0; i < name.size(); i++)
+	{
+		cout <<left<<setw(10)<< name[i] << " " <<setw(12)<< surname[i] << " " <<setw(10)<< age[i] << endl;
+	}
+	
+
+	for (int i = 0; i < age.size() - 1; i++)
+	{
+		for (int j = 0; j < age.size() - 1; j++)
+		{
+			if (age[j] < age[j + 1])
+			{
+				swap(name[j], name[j + 1]);
+				swap(surname[j], surname[j + 1]);
+				swap(age[j], age[j + 1]);
+			}
+		}
+	}
+	cout << endl;
+	fin.close();
+	ofstream fout;
+	fout.open("D:\\Users\\admin\\Desktop\\test\\input.txt");
+	for (int i = 0; i < name.size(); i++)
+	{
+		fout << left << setw(10) << name[i] << " " << setw(12) << surname[i] << " " << setw(10) << age[i] << endl;
+	}
+
+	fout.close();
+	
+	system("pause");
+}
+
+
