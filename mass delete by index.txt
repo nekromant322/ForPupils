@@ -1,0 +1,71 @@
+#include <iostream>
+using namespace std;
+void fill(double* m, int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		m[i] = rand() % 100 / 3.14;
+	}
+}
+double*  delete_by_index(double* mas, int n, int index)
+{
+
+	double* buf = new double[n - 1];
+	
+	for (int i = 0; i < index; i++)
+	{
+		buf[i] = mas[i];
+	}
+	for (int i = index + 1; i < n; i++)
+	{
+		buf[i - 1] = mas[i];
+	}
+	delete[] mas;
+	
+	return buf;
+
+}
+void qwe(int t)
+{
+	t = t + 777;
+}
+//5 9 10 5 8 6 3 1    [3;6]  3<=x<=6       (5;8)  5<x<8
+//swap(a,b);
+int main()
+{
+	int j = 10;
+	qwe(j);
+	cout << j << endl;
+
+	setlocale(LC_ALL, "Rus");
+	int m;
+	cin >> m;
+	double* p = new double[m];
+	fill(p, m);
+	for (int i = 0; i < m; i++)
+	{
+		cout << p[i] << " ";
+	}
+
+	cout << "Введите номер удаляемого элемента" << endl;
+	int to_delete;
+	cin >> to_delete;
+
+	
+	p = delete_by_index(p, m, to_delete);
+	cout << m << endl;
+	m--;
+	cout << endl;
+	for (int i = 0; i < m; i++)
+	{
+		cout << p[i] << " ";
+	}
+
+
+
+
+
+	delete[] p;
+	system("pause");
+	return 0;
+}
