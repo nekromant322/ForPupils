@@ -1,0 +1,41 @@
+#include <iostream>
+
+using namespace std;
+float energy(float m, float h)
+{
+	float E;
+	E =1.0* m * h * 9.8;
+	return E;
+ 
+}
+void print_menu()
+{
+	cout << "1.Play the game" << endl;
+	cout << "2.Settings" << endl;
+	cout << "3.Score" << endl;
+	cout << "0.Exit" << endl;
+}
+float y(float x)
+{
+	return x * x - x + 1;
+}
+
+
+
+int main()
+{
+	setlocale(LC_ALL, "Rus");
+	float d, c, E;
+	cout << "Enter m and h" << endl;
+	cin >> c;
+	cin >> d;
+	E = energy(c, d);
+
+	cout << E << endl;
+	
+
+
+	print_menu();
+
+	system("pause");
+}
