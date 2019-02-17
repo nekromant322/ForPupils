@@ -1,0 +1,10 @@
+git config --global user.name "Анатолий Марандюк"
+git config --global user.email "shamaneeel@mail.ru"
+git init
+git status
+git add .
+git commit -m "Комментарий"
+git log
+git remote add nazvanie ссылка.git
+git push navanie master
+git pull nazvanie master
