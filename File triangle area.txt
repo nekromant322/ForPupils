@@ -12,7 +12,7 @@ float Heron(int a, int b, int c)
 
 int main()
 {
-	setlocale(LC_ALL, "Rus");
+	
 	ofstream fout;
 	ifstream fin;
 
