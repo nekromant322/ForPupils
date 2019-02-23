@@ -1,0 +1,29 @@
+#include <iostream>
+#include <string>
+#include <iomanip>
+#include <vector>
+#include <fstream>
+using namespace std;
+
+struct pupil
+{
+	string name;
+	int age;
+	bool balbes;
+};
+
+int main()
+{
+	setlocale(LC_ALL, "Rus");
+	pupil A;
+	A.name = "Anatolii";
+	A.age = 20;
+	A.balbes = true;
+	//#include<iomanip>
+	cout << left << setw(10) << A.name << setw(3) << A.age << setw(2) << A.balbes << endl;
+
+
+
+
+	system("pause");
+}
