@@ -1,0 +1,100 @@
+#include <iostream>
+#include <string>
+#include <iomanip>
+#include <vector>
+#include <fstream>
+using namespace std;
+//enum  cat {sport , heavy , light };
+struct car
+{
+	int id;
+	string mark;
+	int year;
+	string category; //"sport" , "heavy" , "light"
+	float price;
+	bool old;
+};
+
+int main()
+{
+	setlocale(LC_ALL, "Rus");
+	vector<car> base;
+	ifstream fin;
+	fin.open("input.txt");
+	if (fin.is_open())
+	{
+		while (!fin.eof()) 
+		{
+			car buf;
+			fin >> buf.id;
+			fin >> buf.mark;
+			fin >> buf.year;
+			fin >> buf.category;
+			fin >> buf.price;
+			fin >> buf.old;
+			base.push_back(buf);
+		}
+		fin.close();
+	}
+	else
+	{
+		cout << "Не удалось загрузить базу" << endl;
+	}
+
+
+	int answer = -1;
+	while (answer != 0)
+	{
+		cout << "МЕНЮ" << endl
+			<< "1.Распечатка" << endl
+			<< "2.Добавление автомобиля в базу " << endl
+			<< "3.Удаление автомобиля из базы id/category" << endl
+			<< "4.Информация по категориям" << endl
+			<< "5.Сохранение базы в файл" << endl
+			<< "6.Сортировка по году" << endl
+			<< "7.Информация по цене" << endl
+			<< "0.Выход " << endl;
+		cin >> answer;
+		switch (answer)
+		{
+		case 1:
+		{
+			for (int i = 0; i < base.size(); i++)
+			{
+				//#include <iomanip>
+				cout << left << setw(10) << base[i].id << setw(15) << base[i].mark << setw(5) << base[i].year << setw(8) << base[i].category << setw(10) << base[i].price << setw(2) << base[i].old << endl;
+			}
+			break;
+		}
+		case 2:
+		{
+
+			break;
+		}
+		case 3:
+		{
+			
+			break;
+		}
+		case 5:
+		{
+			ofstream fout;
+			fout.open("input.txt");
+			for (int i = 0; i < base.size(); i++)
+			{
+				//#include <iomanip>
+				fout << left << setw(10) << base[i].id << setw(15) << base[i].mark << setw(5) << base[i].year << setw(8) << base[i].category << setw(10) << base[i].price << setw(2) << base[i].old << endl;
+			}
+			fout.close();
+			break;
+		}
+
+
+		}
+	}
+
+
+
+
+	system("pause");
+}
