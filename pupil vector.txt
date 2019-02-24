@@ -1,0 +1,45 @@
+#include <iostream>
+#include <string>
+#include <iomanip>
+#include <vector>
+#include <fstream>
+using namespace std;
+
+struct pupil
+{
+	string name;
+	int age;
+	bool balbes;
+};
+
+int main()
+{
+	setlocale(LC_ALL, "Rus");
+	pupil A;
+	vector<pupil> v;
+	int n;
+	cin >> n;
+	for (int i = 0; i < n; i++)
+	{
+		pupil buf;
+		cin >> buf.name;
+		cin >> buf.age;
+		cin >> buf.balbes;
+
+		v.push_back(buf);
+	}
+
+
+	for (int i = 0; i < v.size(); i++)
+	{
+		cout << left << setw(10) << v[i].name << setw(3) << v[i].age << setw(2) << v[i].balbes << endl;
+	}
+
+	
+	
+
+
+
+
+	system("pause");
+}
