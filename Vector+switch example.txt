@@ -1,0 +1,91 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main()
+{
+	setlocale(LC_ALL, "Rus");
+	vector<int> v = { 20,50,100 };
+
+	
+	
+	int answer = -1;
+	while (answer != 0)
+	{
+		cout << "1.Показать список" << endl;
+		cout << "2.Добавить контейнер" << endl;
+		cout << "3.Отгрузить контейнер" << endl;
+		cout << "4.Отсортировать" << endl;
+		cout << "5.Вычислить среднюю массу грузов" << endl;
+		cout << "0.Выйти" << endl;
+		cin >> answer;
+		switch (answer)
+		{
+		case 1:
+		{
+			for (int i = 0; i < v.size(); i++)
+			{
+				cout << v[i] << " ";
+			}
+			cout << endl;
+			break;
+		}
+		case 2:
+		{
+			cout << "Какова масса нового контейнера" << endl;
+			int massa;
+			cin >> massa;
+			v.push_back(massa);
+			break;
+		}
+		case 3:
+		{
+			int massa;
+			//cout<<
+			cin >> massa;
+			for (int i = 0 ; i < v.size() ; i++)
+			{
+				if (v[i] == massa)
+				{
+					v.erase(v.begin() + i);
+				}
+			}
+
+			break;
+		}
+		case 4:
+		{
+
+			break;
+		}
+		case 5:
+		{
+			int sum = 0;
+			for (int i = 0; i < v.size(); i++)
+			{
+				sum = sum + v[i];
+			}
+
+			cout << sum / v.size();
+			break;
+		}
+		default:
+		{
+			cout << "Такой команды нет" << endl;
+		}
+		
+		}
+	}
+	
+
+
+
+
+
+
+
+
+
+
+	system("pause");
+}
