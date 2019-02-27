@@ -1,0 +1,42 @@
+
+#include <iostream>
+#include <string>
+#include <Windows.h>
+
+using namespace std;
+
+int main()
+{
+	cout << "Loading............" << endl;
+	int total_to_load = 2000;
+	for (int i = 0; i < total_to_load; i++)
+	{
+
+		//Loading data about an object
+		if (i == total_to_load / 4)
+		{
+			system("cls");
+			cout << "Loading###........." << endl;
+		}
+		if (i == total_to_load / 2)
+		{
+			system("cls");
+			cout << "Loading######......" << endl;
+		}
+		if (i  == total_to_load / 4 * 3)
+		{
+			system("cls");
+			cout << "Loading#########..." << endl;
+		}
+		if (i == total_to_load - 1)
+		{
+			system("cls");
+			cout << "Loading############" << endl;
+		}
+		Sleep(2); //Do not use it in your program, it's just for example
+	}
+
+
+	system("pause");
+	return 0;
+}
