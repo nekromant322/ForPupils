@@ -1,0 +1,187 @@
+#include <iostream> 
+#include<time.h> 
+#include <conio.h> 
+#include <windows.h> 
+#include <time.h>
+using namespace std;
+
+enum eDirection { STOP = 0, LEFT, RIGHT, UP, DOWN };
+eDirection dir;
+class SnakeGame
+{
+private:
+	bool gameOver;
+	const int width = 60;
+	const int heigth = 20;
+	int tailX[100], tailY[100];
+	int ntail;
+	int x, y, fX, fY, score;
+public:
+	SnakeGame()
+	{
+		srand(time(NULL));
+		gameOver = false;
+		dir = STOP;
+		x = width / 2 - 1;
+		y = heigth / 2 - 1;
+		fX = rand() % (width - 2) + 1;
+		fY = rand() % (heigth - 2) + 1;
+		score = 0;
+		ntail = 0;
+	}
+	void Draw()
+	{
+		Sleep(200);
+		system("cls");
+		for (int i = 0; i < width + 1; i++)
+			cout << "#";
+		cout << endl;
+
+		for (int i = 0; i < heigth; i++)
+		{
+			for (int j = 0; j < width; j++)
+			{
+				if (j == 0 || j == width - 1)
+				{
+					cout << "#";
+				}
+				if (i == y && j == x)
+				{
+					cout << "O";
+				}
+				else if (i == fY && j == fX)
+				{
+					cout << "@";
+				}
+				else
+				{
+					bool print = false;
+					for (int k = 0; k < ntail; k++)
+					{
+						if (tailX[k] == j && tailY[k] == i)
+						{
+							cout << "o";
+							print = true;
+						}
+					}
+					if (!print)
+					{
+						cout << " ";
+					}
+				}
+			}
+			cout << endl;
+		}
+		for (int i = 0; i < width + 1; i++)
+		{
+			cout << "#";
+		}
+		cout << endl;
+		cout << "Score: " << score;
+	}
+	void Input() 
+	{
+		if (_kbhit())
+		{
+			switch (_getch())
+			{
+			case 'a':
+				dir = LEFT;
+				break;
+			case 'w':
+				dir = UP;
+				break;
+			case 'd':
+				dir = RIGHT;
+				break;
+			case 's':
+				dir = DOWN;
+				break;
+			case 'x':
+				gameOver = true;
+				break;
+			}
+		}
+	}
+	void Logic()
+	{
+
+		int oldX = tailX[0];
+		int oldY = tailY[0];
+
+		tailX[0] = x;
+		tailY[0] = y;
+
+		int newX, newY;
+		for (int i = 1; i < ntail; i++)
+		{
+			newX = tailX[i];
+			newY = tailY[i];
+			tailX[i] = oldX;
+			tailY[i] = oldY;
+			oldX = newX;
+			oldY = newY;
+		}
+
+		switch (dir)
+		{
+		case LEFT:
+			x--;
+			break;
+		case UP:
+			y--;
+			break;
+		case DOWN:
+			y++;
+			break;
+		case RIGHT:
+			x++;
+			break;
+
+		}
+		if (x >= width - 1)
+			x = 0;
+		else if (x < 0)
+			x = width - 2;
+
+		if (y >= heigth)
+			y = 0;
+		else if (y < 0)
+			y = heigth - 1;
+
+
+		for (int i = 0; i < ntail; i++) 
+		{
+			if (tailX[i] == x && tailY[i] == y)
+			{
+				gameOver = true;
+			}
+		}
+
+		if (x == fX && y == fY)
+		{
+			score += 1;
+			fX = rand() % width;
+			fY = rand() % heigth;
+			ntail++;
+		}
+	}
+	bool IsOver()
+	{
+		return gameOver;
+	}
+};
+
+
+int main()
+{
+	srand(time(NULL));
+	SnakeGame Game = SnakeGame();
+	
+	while (!Game.IsOver()) {
+		Game.Draw();
+		Game.Input();
+		Game.Logic();
+	}
+	return 0;
+}
